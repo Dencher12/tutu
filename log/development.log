@@ -922,3 +922,840 @@ Migrating to CreateUsers (20191016184045)
   [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mTicket Load (0.6ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."train_id" = ? LIMIT ?[0m  [["train_id", 1], ["LIMIT", 11]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTicket Load (11.7ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mRoute Load (14.0ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  [1m[36mUser Load (14.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTrain Load (14.0ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (57.9ms)[0m  [1m[32mINSERT INTO "tickets" ("first_station", "last_station", "user_id", "train_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_station", "Москва"], ["last_station", "Краснодар"], ["user_id", 1], ["train_id", 3], ["created_at", "2019-10-17 15:18:28.612020"], ["updated_at", "2019-10-17 15:18:28.612020"]]
+  [1m[35m (106.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTicket Load (0.6ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Destroy (0.7ms)[0m  [1m[31mDELETE FROM "tickets" WHERE "tickets"."id" = ?[0m  [["id", 2]]
+  [1m[35m (138.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tickets" WHERE "tickets"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTicket Load (0.5ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRoute Load (0.5ms)[0m  [1m[34mSELECT "routes".* FROM "routes" ORDER BY "routes"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTrain Load (17.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 11]]
+  [1m[36mRailwayStation Load (0.3ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 11]]
+  [1m[36mRailwayStation Load (0.5ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" ORDER BY "railway_stations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRoute Load (0.6ms)[0m  [1m[34mSELECT "routes".* FROM "routes" INNER JOIN "routes_railway_stations" ON "routes"."id" = "routes_railway_stations"."route_id" WHERE "routes_railway_stations"."railway_station_id" = ? LIMIT ?[0m  [["railway_station_id", 1], ["LIMIT", 11]]
+Started GET "/" for ::1 at 2019-10-17 22:19:06 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 30.3ms | Allocations: 1774)
+Completed 200 OK in 1341ms (Views: 1333.2ms | ActiveRecord: 0.0ms | Allocations: 1258971)
+
+
+Started GET "/www.thinknetica.com" for ::1 at 2019-10-17 22:19:13 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/www.thinknetica.com"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-10-17 22:27:56 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 230)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 8534)
+
+
+Started GET "/" for ::1 at 2019-10-17 22:27:58 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 98)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 7420)
+
+
+Started GET "/www.thinknetica.com" for ::1 at 2019-10-17 22:28:01 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/www.thinknetica.com"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-10-17 22:28:59 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 229)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 8501)
+
+
+Started GET "/" for ::1 at 2019-10-17 22:30:10 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 229)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 8508)
+
+
+Started GET "/" for ::1 at 2019-10-17 22:30:34 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 229)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 8505)
+
+
+Started GET "/" for ::1 at 2019-10-17 22:31:46 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 230)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 8511)
+
+
+Started GET "/" for ::1 at 2019-10-17 22:31:59 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 234)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 8516)
+
+
+Started GET "/" for ::1 at 2019-10-17 22:32:17 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 229)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 8503)
+
+
+Started GET "/" for ::1 at 2019-10-17 22:32:36 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 229)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 8504)
+
+
+Started GET "/" for ::1 at 2019-10-17 22:48:45 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 229)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 8503)
+
+
+Started GET "/trains" for ::1 at 2019-10-17 22:48:49 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.5ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered trains/index.html.erb within layouts/application (Duration: 40.0ms | Allocations: 5410)
+Completed 200 OK in 63ms (Views: 52.1ms | ActiveRecord: 2.5ms | Allocations: 15244)
+
+
+Started GET "/trains/1" for ::1 at 2019-10-17 22:48:50 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (Duration: 37.0ms | Allocations: 250)
+Completed 200 OK in 59ms (Views: 55.3ms | ActiveRecord: 0.2ms | Allocations: 8670)
+
+
+Started GET "/railway_stations" for ::1 at 2019-10-17 22:49:04 +0300
+Processing by RailwayStationsController#index as HTML
+  Rendering railway_stations/index.html.erb within layouts/application
+  [1m[36mRailwayStation Load (0.3ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations"[0m
+  ↳ app/views/railway_stations/index.html.erb:14
+  Rendered railway_stations/index.html.erb within layouts/application (Duration: 30.3ms | Allocations: 3945)
+Completed 200 OK in 52ms (Views: 42.3ms | ActiveRecord: 1.4ms | Allocations: 13718)
+
+
+Started GET "/railway_stations/1" for ::1 at 2019-10-17 22:49:06 +0300
+Processing by RailwayStationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRailwayStation Load (0.3ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" WHERE "railway_stations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/railway_stations_controller.rb:67:in `set_railway_station'
+  Rendering railway_stations/show.html.erb within layouts/application
+  Rendered railway_stations/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 248)
+Completed 200 OK in 19ms (Views: 15.3ms | ActiveRecord: 0.3ms | Allocations: 8338)
+
+
+Started GET "/routes" for ::1 at 2019-10-17 22:49:14 +0300
+Processing by RoutesController#index as HTML
+  Rendering routes/index.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  ↳ app/views/routes/index.html.erb:14
+  Rendered routes/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 3678)
+Completed 200 OK in 26ms (Views: 18.2ms | ActiveRecord: 0.9ms | Allocations: 13368)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 22:49:16 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.3ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:12
+  Rendered routes/show.html.erb within layouts/application (Duration: 10.6ms | Allocations: 4815)
+Completed 200 OK in 27ms (Views: 22.7ms | ActiveRecord: 0.8ms | Allocations: 12817)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 22:49:36 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:12
+  Rendered routes/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1681)
+Completed 200 OK in 21ms (Views: 16.9ms | ActiveRecord: 0.8ms | Allocations: 10474)
+
+
+Started GET "/routes" for ::1 at 2019-10-17 22:49:43 +0300
+Processing by RoutesController#index as HTML
+  Rendering routes/index.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  ↳ app/views/routes/index.html.erb:14
+  Rendered routes/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1175)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.2ms | Allocations: 8650)
+
+
+Started GET "/routes/2" for ::1 at 2019-10-17 22:49:44 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoute Load (0.3ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 2], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  Rendered routes/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 800)
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 0.5ms | Allocations: 8652)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 22:49:55 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:12
+  Rendered routes/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1439)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 0.8ms | Allocations: 9278)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 22:50:24 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  Rendered routes/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1683)
+Completed 200 OK in 19ms (Views: 15.4ms | ActiveRecord: 0.5ms | Allocations: 10481)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 22:50:39 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  Rendered routes/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1683)
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 0.6ms | Allocations: 10480)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 22:54:08 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.3ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  Rendered routes/show.html.erb within layouts/application (Duration: 14.3ms | Allocations: 5022)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.7ms | Allocations: 6691)
+
+
+  
+ActionView::Template::Error (undefined method `stations' for #<Route:0x00007fe88a9a31c8>):
+    16:   </ol>
+    17: <% end %>
+    18: 
+    19: <% if @route.stations.empty?%>
+    20:   Станций в маршруте нет
+    21: <% else %>
+    22:   Станции на маршруте:
+  
+app/views/routes/show.html.erb:19
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" ORDER BY "routes"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/routes/1" for ::1 at 2019-10-17 22:57:53 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  [1m[36mRailwayStation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:19
+  [1m[36mRailwayStation Load (0.3ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:24
+  Rendered routes/show.html.erb within layouts/application (Duration: 31.3ms | Allocations: 12389)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 1.6ms | Allocations: 14058)
+
+
+  
+ActionView::Template::Error (undefined method `titile' for #<RailwayStation:0x00007fe8894c1e30>
+Did you mean?  title
+               title?
+               title=):
+    22:   Станции на маршруте:
+    23:   <ol>
+    24:     <% @route.railway_stations.each do |s| %>
+    25:       <li> <%= s.titile %> </li>
+    26:     <% end %>
+    27:   </ol>
+    28: <% end %>
+  
+app/views/routes/show.html.erb:25
+app/views/routes/show.html.erb:24
+Started GET "/routes/1" for ::1 at 2019-10-17 22:58:10 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  [1m[36mRailwayStation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:19
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:24
+  Rendered routes/show.html.erb within layouts/application (Duration: 11.6ms | Allocations: 3360)
+Completed 200 OK in 31ms (Views: 27.3ms | ActiveRecord: 1.1ms | Allocations: 12150)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 23:00:11 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.3ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  [1m[36mRailwayStation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:19
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:24
+  Rendered routes/show.html.erb within layouts/application (Duration: 9.7ms | Allocations: 3395)
+Completed 200 OK in 26ms (Views: 21.3ms | ActiveRecord: 1.3ms | Allocations: 12197)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 23:00:28 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  [1m[36mRailwayStation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:19
+  [1m[36mRailwayStation Load (0.1ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:24
+  Rendered routes/show.html.erb within layouts/application (Duration: 10.8ms | Allocations: 3367)
+Completed 200 OK in 28ms (Views: 24.1ms | ActiveRecord: 0.9ms | Allocations: 12158)
+
+
+Started GET "/routes" for ::1 at 2019-10-17 23:00:38 +0300
+Processing by RoutesController#index as HTML
+  Rendering routes/index.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  ↳ app/views/routes/index.html.erb:14
+  Rendered routes/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1166)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.2ms | Allocations: 8640)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRailwayStation Create (0.3ms)[0m  [1m[32mINSERT INTO "railway_stations" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Тверь"], ["created_at", "2019-10-17 20:03:26.851118"], ["updated_at", "2019-10-17 20:03:26.851118"]]
+  [1m[35m (131.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRoutesRailwayStation Create (0.3ms)[0m  [1m[32mINSERT INTO "routes_railway_stations" ("route_id", "railway_station_id") VALUES (?, ?)[0m  [["route_id", 1], ["railway_station_id", 6]]
+  [1m[35m (128.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRailwayStation Load (0.7ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 11]]
+Started GET "/routes/1" for ::1 at 2019-10-17 23:04:18 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  [1m[36mRailwayStation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:19
+  [1m[36mRailwayStation Load (0.1ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:24
+  Rendered routes/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3000)
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.8ms | Allocations: 10838)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 23:05:49 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  [1m[36mRailwayStation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:19
+  [1m[36mRailwayStation Load (0.1ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:24
+  Rendered routes/show.html.erb within layouts/application (Duration: 10.1ms | Allocations: 3428)
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 0.9ms | Allocations: 12216)
+
+
+Started GET "/trains/1" for ::1 at 2019-10-17 23:05:50 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 244)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 8679)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 23:06:21 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  [1m[36mRailwayStation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:19
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:24
+  Rendered routes/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 3485)
+Completed 200 OK in 29ms (Views: 24.5ms | ActiveRecord: 0.9ms | Allocations: 12274)
+
+
+Started GET "/railway_stations/6" for ::1 at 2019-10-17 23:06:24 +0300
+Processing by RailwayStationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRailwayStation Load (0.4ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" WHERE "railway_stations"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/railway_stations_controller.rb:67:in `set_railway_station'
+  Rendering railway_stations/show.html.erb within layouts/application
+  Rendered railway_stations/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 245)
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 0.4ms | Allocations: 8667)
+
+
+Started GET "/railway_stations" for ::1 at 2019-10-17 23:06:25 +0300
+Processing by RailwayStationsController#index as HTML
+  Rendering railway_stations/index.html.erb within layouts/application
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations"[0m
+  ↳ app/views/railway_stations/index.html.erb:14
+  Rendered railway_stations/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1521)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 9007)
+
+
+Started GET "/railway_stations/6" for ::1 at 2019-10-17 23:06:34 +0300
+Processing by RailwayStationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" WHERE "railway_stations"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/railway_stations_controller.rb:67:in `set_railway_station'
+  Rendering railway_stations/show.html.erb within layouts/application
+  Rendered railway_stations/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 91)
+Completed 200 OK in 17ms (Views: 13.5ms | ActiveRecord: 0.2ms | Allocations: 7932)
+
+
+Started GET "/railway_stations" for ::1 at 2019-10-17 23:06:36 +0300
+Processing by RailwayStationsController#index as HTML
+  Rendering railway_stations/index.html.erb within layouts/application
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations"[0m
+  ↳ app/views/railway_stations/index.html.erb:14
+  Rendered railway_stations/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1239)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.2ms | Allocations: 8576)
+
+
+Started GET "/railway_stations/1" for ::1 at 2019-10-17 23:06:52 +0300
+Processing by RailwayStationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" WHERE "railway_stations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/railway_stations_controller.rb:67:in `set_railway_station'
+  Rendering railway_stations/show.html.erb within layouts/application
+  Rendered railway_stations/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 90)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.2ms | Allocations: 7926)
+
+
+Started GET "/railway_stations" for ::1 at 2019-10-17 23:06:55 +0300
+Processing by RailwayStationsController#index as HTML
+  Rendering railway_stations/index.html.erb within layouts/application
+  [1m[36mRailwayStation Load (0.3ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations"[0m
+  ↳ app/views/railway_stations/index.html.erb:14
+  Rendered railway_stations/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1239)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.3ms | Allocations: 8576)
+
+
+Started GET "/welcome/index" for ::1 at 2019-10-17 23:06:58 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 229)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 8129)
+
+
+Started GET "/trains" for ::1 at 2019-10-17 23:07:01 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1166)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.2ms | Allocations: 9079)
+
+
+Started GET "/welcome/index" for ::1 at 2019-10-17 23:07:03 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 97)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 7426)
+
+
+Started GET "/routes" for ::1 at 2019-10-17 23:07:04 +0300
+Processing by RoutesController#index as HTML
+  Rendering routes/index.html.erb within layouts/application
+  [1m[36mRoute Load (0.3ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  ↳ app/views/routes/index.html.erb:14
+  Rendered routes/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1166)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.3ms | Allocations: 8648)
+
+
+Started GET "/routes/1" for ::1 at 2019-10-17 23:07:08 +0300
+Processing by RoutesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoute Load (0.3ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/routes_controller.rb:48:in `set_route'
+  Rendering routes/show.html.erb within layouts/application
+  [1m[36mTrain Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trains" WHERE "trains"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:8
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:13
+  [1m[36mRailwayStation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ? LIMIT ?[0m  [["route_id", 1], ["LIMIT", 1]]
+  ↳ app/views/routes/show.html.erb:19
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations" INNER JOIN "routes_railway_stations" ON "railway_stations"."id" = "routes_railway_stations"."railway_station_id" WHERE "routes_railway_stations"."route_id" = ?[0m  [["route_id", 1]]
+  ↳ app/views/routes/show.html.erb:24
+  Rendered routes/show.html.erb within layouts/application (Duration: 8.7ms | Allocations: 3145)
+Completed 200 OK in 24ms (Views: 19.7ms | ActiveRecord: 1.2ms | Allocations: 10992)
+
+
+Started GET "/trains/1" for ::1 at 2019-10-17 23:12:53 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1109)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 2808)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @train.number %>
+</p>
+
+<% if @train.route.empty? %>
+  <strong>Маршрут не назначен<strong>
+<% else %>
+  <strong>Маршрут: <strong> <% train.route %> 
+
+<%= link_to 'Edit', edit_train_path(@train) %> |
+<%= link_to 'Back', trains_path %>
+
+):
+1:    <p id="notice"><%= notice %></p>
+2:    
+3:    <p>
+4:      <strong>Number:</strong>
+5:      <%= @train.number %>
+6:    </p>
+7:    
+8:    <% if @train.route.empty? %>
+9:      <strong>Маршрут не назначен<strong>
+10:    <% else %>
+11:      <strong>Маршрут: <strong> <% train.route %> 
+12:    
+13:    <%= link_to 'Edit', edit_train_path(@train) %> |
+14:    <%= link_to 'Back', trains_path %>
+  
+app/views/trains/show.html.erb:17: syntax error, unexpected end-of-input, expecting end
+app/views/trains/show.html.erb:17: syntax error, unexpected end-of-input, expecting end
+app/views/trains/show.html.erb:17: syntax error, unexpected end-of-input, expecting end
+app/views/trains/show.html.erb:17: syntax error, unexpected end-of-input, expecting end
+app/views/trains/show.html.erb:17: syntax error, unexpected end-of-input, expecting end
+app/views/trains/show.html.erb:17: syntax error, unexpected end-of-input, expecting end
+Started GET "/trains/1" for ::1 at 2019-10-17 23:13:16 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 12.3ms | Allocations: 4326)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms | Allocations: 6006)
+
+
+  
+ActionView::Template::Error (undefined method `empty?' for #<Route:0x00007fe88afe0e50>):
+     5:   <%= @train.number %>
+     6: </p>
+     7: 
+     8: <% if @train.route.empty? %>
+     9:   <strong>Маршрут не назначен<strong>
+    10: <% else %>
+    11:   <strong>Маршрут: <strong> <% train.route %>
+  
+app/views/trains/show.html.erb:8
+Started GET "/trains/1" for ::1 at 2019-10-17 23:13:35 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 437.1ms | Allocations: 148689)
+Completed 500 Internal Server Error in 444ms (ActiveRecord: 0.4ms | Allocations: 150388)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `train' for #<#<Class:0x00007fe88abd2a48>:0x00007fe88abd0b08>
+Did you mean?  @train
+               taint
+               trap):
+     8: <% if @train.route.nil? %>
+     9:   <strong>Маршрут не назначен<strong>
+    10: <% else %>
+    11:   <strong>Маршрут: <strong> <% train.route %>
+    12: <% end %>    
+    13: 
+    14: <%= link_to 'Edit', edit_train_path(@train) %> |
+  
+app/views/trains/show.html.erb:11
+Started GET "/trains/1" for ::1 at 2019-10-17 23:13:55 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 979)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.3ms | Allocations: 9785)
+
+
+Started GET "/trains/1" for ::1 at 2019-10-17 23:14:08 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 993)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 0.5ms | Allocations: 9800)
+
+
+Started GET "/trains/1" for ::1 at 2019-10-17 23:14:24 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.9ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (1.9ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 781)
+Completed 200 OK in 22ms (Views: 15.6ms | ActiveRecord: 2.8ms | Allocations: 8633)
+
+
+Started GET "/trains/1" for ::1 at 2019-10-17 23:14:29 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.5ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 996)
+Completed 200 OK in 21ms (Views: 15.8ms | ActiveRecord: 0.7ms | Allocations: 9804)
+
+
+Started GET "/trains/1" for ::1 at 2019-10-17 23:14:48 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 984)
+Completed 200 OK in 22ms (Views: 17.2ms | ActiveRecord: 0.4ms | Allocations: 9773)
+
+
+Started GET "/trains/1" for ::1 at 2019-10-17 23:14:58 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 985)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 0.4ms | Allocations: 9777)
+
+
+Started GET "/trains/1" for ::1 at 2019-10-17 23:15:37 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 998)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.3ms | Allocations: 9791)
+
+
+Started GET "/trains" for ::1 at 2019-10-17 23:15:42 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1149)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.1ms | Allocations: 8626)
+
+
+Started GET "/trains/3" for ::1 at 2019-10-17 23:15:44 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 766)
+Completed 200 OK in 16ms (Views: 11.3ms | ActiveRecord: 0.5ms | Allocations: 8612)
+
+
+Started GET "/trains" for ::1 at 2019-10-17 23:15:46 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 882)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.3ms | Allocations: 8221)
+
+
+Started GET "/welcome/index" for ::1 at 2019-10-17 23:17:16 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 229)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.0ms | Allocations: 8130)
+
+
+Started GET "/routes" for ::1 at 2019-10-17 23:17:18 +0300
+Processing by RoutesController#index as HTML
+  Rendering routes/index.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  ↳ app/views/routes/index.html.erb:14
+  Rendered routes/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1158)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.1ms | Allocations: 9072)
+
+

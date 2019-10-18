@@ -4,6 +4,13 @@
   <strong>Number:</strong>
   <%= @train.number %>
 </p>
+<p>
+  <% if @train.route.nil? %>
+    <strong>Маршрут не назначен<strong>
+  <% else %>
+    <strong>Маршрут: </strong> <%= @train.route.name %>
+  <% end %>
+</p>  
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
