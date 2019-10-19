@@ -1,0 +1,5 @@
+<ol>
+  <% @route.send(objects).each do |o| %>
+    <li> <%= link_to o.send(attr), o %> </li>
+  <% end %>
+</ol>
