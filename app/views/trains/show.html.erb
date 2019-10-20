@@ -10,7 +10,35 @@
   <% else %>
     <strong>Route: </strong> <%= @train.route.name %>
   <% end %>
-</p>  
+</p>
+
+<p>
+  <% if @train.cars.empty? %>
+    <strong>No cars<strong>
+  <% else %>
+    <strong>Second class cars number:</strong> 
+    <%= @train.cars.count {|c| c.kind == 'Second class'} %><br>
+
+    <strong>Third class cars number:</strong> 
+    <%= @train.cars.count {|c| c.kind == 'Third class'} %>
+  <% end %>
+</p>
+
+<p>
+  <% 
+    top = 0 
+    lower = 0 
+    @train.cars.each do |c| 
+      top += c.top_places 
+      lower += c.lower_places 
+    end 
+  %> 
+
+  <strong> Top places: </strong> <%= top %> <br>
+  <strong> Lower places: </strong> <%= lower %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

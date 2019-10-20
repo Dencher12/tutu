@@ -5550,3 +5550,3102 @@ Migrating to CreateCars (20191020105426)
   [1m[36mCar Destroy (0.5ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
   [1m[35m (83.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" ORDER BY "cars"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-10-20 17:52:41 +0300
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 522)
+Completed 200 OK in 963ms (Views: 957.0ms | ActiveRecord: 0.0ms | Allocations: 1437350)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 17:52:48 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (14.7ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered cars/index.html.erb within layouts/application (Duration: 18.1ms | Allocations: 1431)
+Completed 200 OK in 52ms (Views: 17.7ms | ActiveRecord: 14.9ms | Allocations: 11115)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-10-20 17:52:55 +0300
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  [1m[36mRoute Load (0.5ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  ↳ app/views/trains/_form.html.erb:21
+  Rendered trains/_form.html.erb (Duration: 35.1ms | Allocations: 8758)
+  Rendered trains/new.html.erb within layouts/application (Duration: 36.1ms | Allocations: 9123)
+Completed 200 OK in 105ms (Views: 42.5ms | ActiveRecord: 2.0ms | Allocations: 23551)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 17:52:58 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (2.7ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.9ms | Allocations: 552)
+  Rendered trains/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1754)
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 2.7ms | Allocations: 9652)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 17:53:03 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 98)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 7814)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 17:53:09 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered cars/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 790)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 8529)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 17:53:34 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 954)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.1ms | Allocations: 9643)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2019-10-20 17:53:35 +0300
+Processing by CarsController#new as HTML
+Completed 406 Not Acceptable in 10ms (ActiveRecord: 0.4ms | Allocations: 6494)
+
+
+  
+ActionController::MissingExactTemplate (CarsController#new is missing a template for request formats: text/html):
+  
+actionpack (6.0.0) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.0) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.0) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.0) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cars/new" for 127.0.0.1 at 2019-10-20 17:55:59 +0300
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 2.4ms | Allocations: 1924)
+  Rendered cars/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2266)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3549)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <%= form_for(@car) do |f| %>
+    2:   <% if @train.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@train.errors.count, "error") %> prohibited this train from being saved:</h2>
+    5: 
+  
+app/views/cars/_form.html.erb:2
+app/views/cars/_form.html.erb:1
+app/views/cars/new.html.erb:3
+Started GET "/cars/new" for 127.0.0.1 at 2019-10-20 17:56:28 +0300
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 2.5ms | Allocations: 1432)
+  Rendered cars/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1511)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2005)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <%= form_for(@car) do |f| %>
+    2:   <% if @train.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@train.errors.count, "error") %> prohibited this train from being saved:</h2>
+    5: 
+  
+app/views/cars/_form.html.erb:2
+app/views/cars/_form.html.erb:1
+app/views/cars/new.html.erb:3
+Started GET "/cars/new" for 127.0.0.1 at 2019-10-20 17:56:31 +0300
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 1.8ms | Allocations: 1432)
+  Rendered cars/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1511)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2004)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <%= form_for(@car) do |f| %>
+    2:   <% if @train.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@train.errors.count, "error") %> prohibited this train from being saved:</h2>
+    5: 
+  
+app/views/cars/_form.html.erb:2
+app/views/cars/_form.html.erb:1
+app/views/cars/new.html.erb:3
+Started GET "/cars/new" for 127.0.0.1 at 2019-10-20 17:56:34 +0300
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 8.2ms | Allocations: 3970)
+  Rendered cars/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4309)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 5551)
+
+
+  
+ActionView::Template::Error (undefined method `car_id' for #<Car:0x00007f43a7062bc8>):
+    28: 
+    29:   <div class="field">
+    30:     <%= f.label :car %>
+    31:     <%= f.collection_select :car_id, Train.all, :id, :number %>
+    32:   </div>
+    33: 
+    34:   <div class="actions">
+  
+app/views/cars/_form.html.erb:31
+app/views/cars/_form.html.erb:1
+app/views/cars/new.html.erb:3
+Started GET "/cars/new" for 127.0.0.1 at 2019-10-20 17:57:08 +0300
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 4.2ms | Allocations: 2380)
+  Rendered cars/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2737)
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.3ms | Allocations: 11451)
+
+
+Started POST "/cars" for 127.0.0.1 at 2019-10-20 17:57:41 +0300
+Processing by CarsController#create as HTML
+  Parameters: {"authenticity_token"=>"wM/HrCY+LgOXMvKF4id57lwmYlgy9cme8L3Jw/7DgaEuPpdiF9bjx4TcRmLijzoM2OHUGVmTFGyI6o1CsRP6+w==", "car"=>{"kind"=>"Плацкарт", "top_places"=>"30", "lower_places"=>"10", "train_id"=>"3"}, "commit"=>"Create Car"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+  [1m[36mCar Create (23.7ms)[0m  [1m[32mINSERT INTO "cars" ("kind", "top_places", "lower_places", "train_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["kind", "Плацкарт"], ["top_places", 30], ["lower_places", 10], ["train_id", 3], ["created_at", "2019-10-20 14:57:41.105102"], ["updated_at", "2019-10-20 14:57:41.105102"]]
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+  [1m[35m (81.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 192ms (ActiveRecord: 105.9ms | Allocations: 8868)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 17:57:41 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.3ms | Allocations: 2643)
+
+
+  
+ActionController::MissingExactTemplate (CarsController#show is missing a template for request formats: text/html):
+  
+actionpack (6.0.0) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.0) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.0) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.0) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 17:58:50 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.1ms | Allocations: 2507)
+
+
+  
+ActionController::MissingExactTemplate (CarsController#show is missing a template for request formats: text/html):
+  
+actionpack (6.0.0) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.0) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.0) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.0) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:01:30 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 258)
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.2ms | Allocations: 9466)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:01:40 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 1.1ms | Allocations: 308)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1469)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.2ms | Allocations: 9339)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:01:45 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 92)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 8346)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:01:46 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 0.4ms | Allocations: 143)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 950)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.2ms | Allocations: 8675)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:01:46 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 3.4ms | Allocations: 2402)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2813)
+Completed 200 OK in 20ms (Views: 10.8ms | ActiveRecord: 0.3ms | Allocations: 11195)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:01:53 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"zPL/xeK8dLVQyTUK3zgkiOQAgs2Gkg97mfolM2bMzArSBBdXeDs7GxodLdHfdfKpBQ4pbQTxheu3CSELg2jAsg==", "car"=>{"kind"=>"Плацкарт", "top_places"=>"35", "lower_places"=>"10", "train_id"=>"3"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (1.1ms)[0m  [1m[33mUPDATE "cars" SET "top_places" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["top_places", 35], ["updated_at", "2019-10-20 15:01:53.103529"], ["id", 2]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (133.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 148ms (ActiveRecord: 135.1ms | Allocations: 5666)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:01:53 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 95)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 8345)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:01:54 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 0.5ms | Allocations: 143)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 952)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.1ms | Allocations: 8679)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:03:49 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 36.3ms | Allocations: 9317)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 37.0ms | Allocations: 9671)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.1ms | Allocations: 11411)
+
+
+  
+ActionView::Template::Error (undefined method `["sdsd", "asfaf"]' for #<Car:0x00007f43a70da128>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %>
+    16:     <%= f.select ['sdsd','asfaf'] %>
+    17:   </div>
+    18: 
+    19:   <div class="field">
+  
+app/views/cars/_form.html.erb:16
+app/views/cars/_form.html.erb:1
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:04:12 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 6.9ms | Allocations: 4131)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 7.8ms | Allocations: 4486)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.1ms | Allocations: 6226)
+
+
+  
+ActionView::Template::Error (undefined method `sdsd' for #<Car:0x00007f43a441b498>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %>
+    16:     <%= f.select 'sdsd','asfaf' %>
+    17:   </div>
+    18: 
+    19:   <div class="field">
+  
+app/views/cars/_form.html.erb:16
+app/views/cars/_form.html.erb:1
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:09:12 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 1.8ms | Allocations: 1689)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2044)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms | Allocations: 3784)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1..4)):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %>
+    16:     <%= f.select %>
+    17:   </div>
+    18: 
+    19:   <div class="field">
+  
+app/views/cars/_form.html.erb:16
+app/views/cars/_form.html.erb:1
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:09:43 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 2.4ms | Allocations: 2077)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2432)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 4172)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %>
+    16:     <%= f.select :kind %>
+    17:   </div>
+    18: 
+    19:   <div class="field">
+  
+app/views/cars/_form.html.erb:16
+app/views/cars/_form.html.erb:1
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:11:11 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 2.9ms | Allocations: 2081)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2436)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms | Allocations: 4176)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %>
+    16:     <%= f.select :kind %>
+    17:     <option value="1">Lisbon</option>
+    18:   <option value="2">Madrid</option>
+    19:   <option value="3">Berlin</option>
+  
+app/views/cars/_form.html.erb:16
+app/views/cars/_form.html.erb:1
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:11:30 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 2.4ms | Allocations: 1693)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2048)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms | Allocations: 3788)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 4..6)):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %>
+    16:     <%= f.collection_select :kind %>
+    17:     <option value="1">Lisbon</option>
+    18:   <option value="2">Madrid</option>
+    19:   <option value="3">Berlin</option>
+  
+app/views/cars/_form.html.erb:16
+app/views/cars/_form.html.erb:1
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:13:33 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 2.4ms | Allocations: 2082)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2437)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 4177)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %>
+    16:     <%= f.select :kind %>
+    17:       <option value="1">Lisbon</option>
+    18:       <option value="2">Madrid</option>
+    19:       <option value="3">Berlin</option>
+  
+app/views/cars/_form.html.erb:16
+app/views/cars/_form.html.erb:1
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:13:56 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 2.7ms | Allocations: 2076)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2431)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 4171)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %>
+    16:     <%= f.select :kind %>
+    17:   </div>
+    18: 
+    19:   <div class="field">
+  
+app/views/cars/_form.html.erb:16
+app/views/cars/_form.html.erb:1
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:15:11 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 5.9ms | Allocations: 2417)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2822)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.3ms | Allocations: 12025)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:16:23 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 142.9ms | Allocations: 75425)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 143.9ms | Allocations: 75779)
+Completed 500 Internal Server Error in 147ms (ActiveRecord: 0.1ms | Allocations: 77515)
+
+
+  
+ActionView::Template::Error (undefined method `select_tag' for #<ActionView::Helpers::FormBuilder:0x00007f43a677f240>
+Did you mean?  select):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :type %>
+    16:     <%= f.select_tag :kind %>
+    17:   </div>
+    18: 
+    19:   <div class="field">
+  
+app/views/cars/_form.html.erb:16
+app/views/cars/_form.html.erb:1
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:16:45 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 5.9ms | Allocations: 2354)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2759)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 0.3ms | Allocations: 11956)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:17:01 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 1.4ms | Allocations: 1432)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1790)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 3530)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_for(@car) do |f| %>
+  <% if @car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+        <% @car.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %>
+    <%= select_tag :kind 'dfdf'%>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Top places' %>
+    <%= f.text_field :top_places %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Lower places' %>
+    <%= f.text_field :lower_places %>
+  </div>
+
+  <div class="field">
+    <%= f.label :car %>
+    <%= f.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+):
+1:    <%= form_for(@car) do |f| %>
+2:      <% if @car.errors.any? %>
+3:        <div id="error_explanation">
+4:          <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% @car.errors.full_messages.each do |message| %>
+8:              <li><%= message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <div class="field">
+15:        <%= f.label :type %>
+16:        <%= select_tag :kind 'dfdf'%>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= f.label 'Top places' %>
+21:        <%= f.text_field :top_places %>
+22:      </div>
+23:    
+24:      <div class="field">
+25:        <%= f.label 'Lower places' %>
+26:        <%= f.text_field :lower_places %>
+27:      </div>
+28:    
+29:      <div class="field">
+30:        <%= f.label :car %>
+31:        <%= f.collection_select :train_id, Train.all, :id, :number %>
+32:      </div>
+33:    
+34:      <div class="actions">
+35:        <%= f.submit %>
+36:      </div>
+37:    <% end %>
+  
+app/views/cars/_form.html.erb:16: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/cars/_form.html.erb:16: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/cars/_form.html.erb:16: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/cars/_form.html.erb:16: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/cars/_form.html.erb:16: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/cars/_form.html.erb:16: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:18:04 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 3.9ms | Allocations: 2357)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2762)
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.2ms | Allocations: 11958)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:19:00 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 3.9ms | Allocations: 2374)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2778)
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.4ms | Allocations: 11988)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:20:11 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 4.5ms | Allocations: 2377)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2781)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.4ms | Allocations: 11995)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:20:26 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"MCxuuNEeEnjbMD6BvaMIjjssAytmBeN3qYql4TYlkure3T524PbfvMjeima9C0tsv+u1ag1jPoXR3eFgefXpsA==", "kind"=>"Купе", "car"=>{"top_places"=>"10", "lower_places"=>"10", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (0.3ms)[0m  [1m[33mUPDATE "cars" SET "top_places" = ?, "train_id" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["top_places", 10], ["train_id", 4], ["updated_at", "2019-10-20 15:20:26.071714"], ["id", 2]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (120.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 135ms (ActiveRecord: 121.5ms | Allocations: 5598)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:20:26 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 256)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.1ms | Allocations: 8642)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:20:33 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 2.9ms | Allocations: 1940)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2068)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.2ms | Allocations: 10304)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:21:14 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 3.7ms | Allocations: 2356)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2764)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.2ms | Allocations: 11968)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:21:17 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"fYkpZbuzG9GWarfq+HWq/+Y+4oqfLimoaP2Kk1B0A3yTeHmrilvWFYWEAw343ekdYvlUy/RI9FoQqs4SH6R4Jg==", "kind"=>"Купе", "car"=>{"top_places"=>"10", "lower_places"=>"10", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 3561)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:21:17 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 252)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 8644)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:21:25 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 4.5ms | Allocations: 1940)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2068)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.3ms | Allocations: 10306)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:23:28 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 3.6ms | Allocations: 2357)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2761)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 11960)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:23:30 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"zMwrz4RAgzyEV9BgxVe8pIPuAXi7cK2/tvlGcXwjRJkiPXsBtahO+Je5ZIfF//9GBym3OdAWcE3OrgLwM/M/ww==", "kind"=>"Купе", "car"=>{"top_places"=>"10", "lower_places"=>"10", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms | Allocations: 3558)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:23:30 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 252)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.1ms | Allocations: 8640)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:23:32 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 4.1ms | Allocations: 1940)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2068)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.3ms | Allocations: 10305)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:23:45 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 5.4ms | Allocations: 2356)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2760)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.3ms | Allocations: 11951)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:23:47 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"mLLsxzbshBW93ZLW0Eh7c0InKXZkAn/JrTIFoBwq74R2Q7wJBwRJ0a4zJjHQ4DiRxuCfNw9kojvVZUEhU/qU3g==", "kind"=>"Купе", "car"=>{"top_places"=>"10", "lower_places"=>"10", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 9ms (ActiveRecord: 0.6ms | Allocations: 3575)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:23:47 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 253)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 8646)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:28:19 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 249)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.1ms | Allocations: 9445)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:28:20 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 1.0ms | Allocations: 308)
+  Rendered cars/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1449)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.2ms | Allocations: 9315)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:28:23 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  Rendered cars/_form.html.erb (Duration: 1.1ms | Allocations: 1454)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1809)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 2955)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_for(@car) do |f| %>
+  <% if @car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+        <% @car.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %>
+    <%= options_for_select([['Jemmy Legs', 1], ['Talos', 2]])%>
+    <%= select_tag :kind, options_for_select([['Jemmy Legs', 1], ['Talos', 2]]))%>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Top places' %>
+    <%= f.text_field :top_places %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Lower places' %>
+    <%= f.text_field :lower_places %>
+  </div>
+
+  <div class="field">
+    <%= f.label :car %>
+    <%= f.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+):
+1:    <%= form_for(@car) do |f| %>
+2:      <% if @car.errors.any? %>
+3:        <div id="error_explanation">
+4:          <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% @car.errors.full_messages.each do |message| %>
+8:              <li><%= message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <div class="field">
+15:        <%= f.label :type %>
+16:        <%= options_for_select([['Jemmy Legs', 1], ['Talos', 2]])%>
+17:        <%= select_tag :kind, options_for_select([['Jemmy Legs', 1], ['Talos', 2]]))%>
+18:      </div>
+19:    
+20:      <div class="field">
+21:        <%= f.label 'Top places' %>
+22:        <%= f.text_field :top_places %>
+23:      </div>
+24:    
+25:      <div class="field">
+26:        <%= f.label 'Lower places' %>
+27:        <%= f.text_field :lower_places %>
+28:      </div>
+29:    
+30:      <div class="field">
+31:        <%= f.label :car %>
+32:        <%= f.collection_select :train_id, Train.all, :id, :number %>
+33:      </div>
+34:    
+35:      <div class="actions">
+36:        <%= f.submit %>
+37:      </div>
+38:    <% end %>
+  
+app/views/cars/_form.html.erb:17: syntax error, unexpected ')', expecting keyword_end
+app/views/cars/_form.html.erb:40: syntax error, unexpected keyword_end, expecting end-of-input
+app/views/cars/_form.html.erb:17: syntax error, unexpected ')', expecting keyword_end
+app/views/cars/_form.html.erb:40: syntax error, unexpected keyword_end, expecting end-of-input
+app/views/cars/_form.html.erb:17: syntax error, unexpected ')', expecting keyword_end
+app/views/cars/_form.html.erb:40: syntax error, unexpected keyword_end, expecting end-of-input
+app/views/cars/_form.html.erb:17: syntax error, unexpected ')', expecting keyword_end
+app/views/cars/_form.html.erb:40: syntax error, unexpected keyword_end, expecting end-of-input
+app/views/cars/_form.html.erb:17: syntax error, unexpected ')', expecting keyword_end
+app/views/cars/_form.html.erb:40: syntax error, unexpected keyword_end, expecting end-of-input
+app/views/cars/_form.html.erb:17: syntax error, unexpected ')', expecting keyword_end
+app/views/cars/_form.html.erb:40: syntax error, unexpected keyword_end, expecting end-of-input
+app/views/cars/edit.html.erb:3
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:29:06 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:32
+  Rendered cars/_form.html.erb (Duration: 4.6ms | Allocations: 2500)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2905)
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 0.4ms | Allocations: 12102)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:29:12 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"n3HGQczPwQCvkKSzWbxrdUfYJcQqLUwBgngpP/DUUNxxgJaP/ScMxLx+EFRZFCiXwx+ThUFLkfP6L22+vwQrhg==", "kind"=>"2", "car"=>{"top_places"=>"10", "lower_places"=>"10", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms | Allocations: 3558)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:29:12 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 252)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.2ms | Allocations: 8638)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:29:15 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 0.7ms | Allocations: 306)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1442)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 9316)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:29:17 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:32
+  Rendered cars/_form.html.erb (Duration: 2.9ms | Allocations: 2043)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2171)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 10404)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:32:03 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 5.5ms | Allocations: 2386)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2790)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.3ms | Allocations: 11982)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:32:06 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"XKolOnn24TbUSaPVJkBRx3qxzugLO1ZOb6JkOxbgczKyW3X0SB4s8senFzIm6BIl/nZ4qWBdi7wX9SC6WTAIaA==", "car"=>{"kind"=>"Купе", "top_places"=>"10", "lower_places"=>"10", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (0.3ms)[0m  [1m[33mUPDATE "cars" SET "kind" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["kind", "Купе"], ["updated_at", "2019-10-20 15:32:06.728738"], ["id", 2]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (139.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 149ms (ActiveRecord: 140.3ms | Allocations: 5585)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:32:06 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 252)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.1ms | Allocations: 8636)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:32:21 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 0.9ms | Allocations: 306)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1441)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.3ms | Allocations: 10130)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:32:24 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 4.3ms | Allocations: 2386)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2790)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.3ms | Allocations: 11166)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:32:25 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"3U0rNVYfnOulpakiKk9kbaHTqUQx8hDV1qqallfsUMDDu8OnzJjTRe9xsfkqArJMQN0C5LORmkX4WZ6uskhceA==", "car"=>{"kind"=>"Куп", "top_places"=>"10", "lower_places"=>"10", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (0.3ms)[0m  [1m[33mUPDATE "cars" SET "kind" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["kind", "Куп"], ["updated_at", "2019-10-20 15:32:25.313335"], ["id", 2]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (72.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 85ms (ActiveRecord: 73.0ms | Allocations: 5508)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:32:25 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 252)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.1ms | Allocations: 8791)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:41:42 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 252)
+Completed 200 OK in 18ms (Views: 8.9ms | ActiveRecord: 0.2ms | Allocations: 9471)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:41:43 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 1.0ms | Allocations: 306)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1446)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 9310)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:41:45 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 7.9ms | Allocations: 2402)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2807)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.5ms | Allocations: 11208)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:41:51 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"Z9YXXeQSCGfDgvBDV02pLmxXZsHPLonFK8cIg72iCnl5IP/PfpVHyYlW6JhXAH8PjVnNYU1NA1UFNAy7WAYGwQ==", "car"=>{"kind"=>"Third class", "top_places"=>"10", "lower_places"=>"10", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (0.2ms)[0m  [1m[33mUPDATE "cars" SET "kind" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["kind", "Third class"], ["updated_at", "2019-10-20 15:41:51.292385"], ["id", 2]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (237.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 247ms (ActiveRecord: 238.3ms | Allocations: 5628)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:41:51 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 95)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 8343)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:41:56 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 0.4ms | Allocations: 143)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 952)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.1ms | Allocations: 8679)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:42:14 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 4.1ms | Allocations: 1966)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2093)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.2ms | Allocations: 10332)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 18:42:44 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 5.0ms | Allocations: 2415)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2821)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.3ms | Allocations: 12020)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 18:43:05 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"EUvJRObF1w4QVL8K9Ed1f7uTOyqhn4eOAlaz+x/fODn/upmK1y0aygO6C+307zadP1SNa8r5Wnx6Afd6UA9DYw==", "car"=>{"kind"=>"Third class", "top_places"=>"10", "lower_places"=>"10", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms | Allocations: 3611)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:43:05 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 252)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 8645)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:43:08 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 0.5ms | Allocations: 306)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1444)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 9312)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 18:43:09 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 233)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 8523)
+
+
+Started GET "/railway_stations" for 127.0.0.1 at 2019-10-20 18:43:11 +0300
+Processing by RailwayStationsController#index as HTML
+  Rendering railway_stations/index.html.erb within layouts/application
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations"[0m
+  ↳ app/views/railway_stations/index.html.erb:14
+  Rendered collection of railway_stations/_railway_station.html.erb [5 times] (Duration: 4.2ms | Allocations: 859)
+  Rendered railway_stations/index.html.erb within layouts/application (Duration: 41.7ms | Allocations: 5038)
+Completed 200 OK in 103ms (Views: 48.2ms | ActiveRecord: 1.0ms | Allocations: 15240)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 18:43:14 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 97)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 7812)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 18:43:15 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.1ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1691)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 9995)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 18:43:20 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  Rendered trains/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1752)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.2ms | Allocations: 10141)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 18:43:24 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.6ms | Allocations: 375)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1205)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 8934)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 18:43:25 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 97)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 7812)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 18:52:02 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.0ms | Allocations: 588)
+  Rendered trains/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 5672)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.2ms | Allocations: 16311)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 18:52:05 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.3ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 44.6ms | Allocations: 15596)
+Completed 200 OK in 55ms (Views: 50.7ms | ActiveRecord: 1.0ms | Allocations: 24015)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 18:52:15 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.6ms | Allocations: 374)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1204)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 8930)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 18:52:48 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.0ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1674)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.2ms | Allocations: 10359)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 18:52:50 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 273)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 8516)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 18:53:05 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 270)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 8939)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:53:07 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [1 times] (Duration: 0.6ms | Allocations: 308)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1461)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.3ms | Allocations: 9782)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2019-10-20 18:53:20 +0300
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 5.3ms | Allocations: 2358)
+  Rendered cars/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2715)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.3ms | Allocations: 10592)
+
+
+Started POST "/cars" for 127.0.0.1 at 2019-10-20 18:53:29 +0300
+Processing by CarsController#create as HTML
+  Parameters: {"authenticity_token"=>"V3YjccCDrCvekOeJitEa/M6M65rprfRm7y24NgahKo/UAb9vLP/YWDVLHZHeFSU5qrym6axIDzz41LeCRcld5w==", "car"=>{"kind"=>"Second class", "top_places"=>"45", "lower_places"=>"65", "train_id"=>"4"}, "commit"=>"Create Car"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+  [1m[36mCar Create (0.3ms)[0m  [1m[32mINSERT INTO "cars" ("kind", "top_places", "lower_places", "train_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["kind", "Second class"], ["top_places", 45], ["lower_places", 65], ["train_id", 4], ["created_at", "2019-10-20 15:53:29.631212"], ["updated_at", "2019-10-20 15:53:29.631212"]]
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+  [1m[35m (112.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+Redirected to http://localhost:3000/cars/3
+Completed 302 Found in 124ms (ActiveRecord: 113.4ms | Allocations: 5227)
+
+
+Started GET "/cars/3" for 127.0.0.1 at 2019-10-20 18:53:29 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 252)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 8771)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:53:31 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [2 times] (Duration: 0.6ms | Allocations: 260)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1080)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.1ms | Allocations: 8808)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 18:53:32 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 119)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 7828)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 18:53:34 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.1ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1677)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.1ms | Allocations: 9979)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 18:53:36 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 119)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 7831)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 18:53:37 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.9ms | Allocations: 373)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1202)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.1ms | Allocations: 8933)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 18:53:38 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2608)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 0.5ms | Allocations: 10982)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 18:53:41 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 97)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.2ms | Allocations: 8336)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 18:53:42 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [2 times] (Duration: 0.4ms | Allocations: 260)
+  Rendered cars/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1080)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.1ms | Allocations: 8807)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 18:56:17 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 271)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 8943)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 18:56:18 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 2.3ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1674)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.1ms | Allocations: 9974)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 18:56:21 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.4ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  Rendered trains/show.html.erb within layouts/application (Duration: 280.1ms | Allocations: 150314)
+Completed 500 Internal Server Error in 283ms (ActiveRecord: 0.7ms | Allocations: 151438)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `cars' for #<#<Class:0x00007f43a6e76a08>:0x00007f43a6dcd8e0>):
+    16:   <% if @train.cars.empty? %>
+    17:     <strong>No cars<strong>
+    18:   <% else %>
+    19:     Cars number: <% cars.size%>
+    20:   <% end %>
+    21: </p> 
+    22: 
+  
+app/views/trains/show.html.erb:19
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 18:56:40 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:19
+  Rendered trains/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2521)
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.6ms | Allocations: 11714)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 18:56:53 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:19
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2517)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.6ms | Allocations: 11729)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 18:57:20 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:19
+  Rendered trains/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2503)
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.6ms | Allocations: 11698)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 18:59:35 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:19
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 8.5ms | Allocations: 3227)
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 0.8ms | Allocations: 12435)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 18:59:49 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:19
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3187)
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.5ms | Allocations: 12376)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:00:15 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:19
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3261)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.6ms | Allocations: 12470)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:00:38 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:19
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 3226)
+Completed 200 OK in 16ms (Views: 12.8ms | ActiveRecord: 0.5ms | Allocations: 12421)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:01:01 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.0ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1674)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 9538)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:01:02 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 271)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 8559)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:01:03 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [2 times] (Duration: 0.9ms | Allocations: 421)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1568)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.2ms | Allocations: 9877)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2019-10-20 19:01:08 +0300
+Processing by CarsController#new as HTML
+  Rendering cars/new.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 5.5ms | Allocations: 2336)
+  Rendered cars/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2694)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.1ms | Allocations: 10575)
+
+
+Started POST "/cars" for 127.0.0.1 at 2019-10-20 19:01:18 +0300
+Processing by CarsController#create as HTML
+  Parameters: {"authenticity_token"=>"ol1DkVkkP99LQ1TzDKuZeFBnXOD+RpOAtrbVTHrArEMhKt+PtVhLrKCYrutYb6a9NFcRk7ujaNqhT9r4OajbKw==", "car"=>{"kind"=>"Second class", "top_places"=>"66", "lower_places"=>"66", "train_id"=>"4"}, "commit"=>"Create Car"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+  [1m[36mCar Create (0.5ms)[0m  [1m[32mINSERT INTO "cars" ("kind", "top_places", "lower_places", "train_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["kind", "Second class"], ["top_places", 66], ["lower_places", 66], ["train_id", 4], ["created_at", "2019-10-20 16:01:18.753256"], ["updated_at", "2019-10-20 16:01:18.753256"]]
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+  [1m[35m (115.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:20:in `block in create'
+Redirected to http://localhost:3000/cars/4
+Completed 302 Found in 126ms (ActiveRecord: 116.0ms | Allocations: 4973)
+
+
+Started GET "/cars/4" for 127.0.0.1 at 2019-10-20 19:01:18 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 252)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 8654)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:01:20 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.6ms | Allocations: 375)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1205)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.1ms | Allocations: 8930)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:01:21 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 119)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 7832)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:01:22 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.9ms | Allocations: 380)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1211)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 8941)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:01:24 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:19
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2881)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.6ms | Allocations: 11112)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:01:53 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.7ms | Allocations: 373)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1201)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 8931)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:01:55 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 111)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 7822)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:01:56 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 3.4ms | Allocations: 373)
+  Rendered cars/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1201)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 8928)
+
+
+Started GET "/cars/3" for 127.0.0.1 at 2019-10-20 19:01:57 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 90)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.2ms | Allocations: 8324)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:01:59 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 1.1ms | Allocations: 373)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1201)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.1ms | Allocations: 8930)
+
+
+Started GET "/cars/4" for 127.0.0.1 at 2019-10-20 19:02:00 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 90)
+Completed 200 OK in 24ms (Views: 17.4ms | ActiveRecord: 0.4ms | Allocations: 8323)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:02:02 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.6ms | Allocations: 373)
+  Rendered cars/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1201)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.1ms | Allocations: 8923)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:02:06 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 111)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 7821)
+
+
+Started GET "/railway_stations" for 127.0.0.1 at 2019-10-20 19:02:09 +0300
+Processing by RailwayStationsController#index as HTML
+  Rendering railway_stations/index.html.erb within layouts/application
+  [1m[36mRailwayStation Load (0.2ms)[0m  [1m[34mSELECT "railway_stations".* FROM "railway_stations"[0m
+  ↳ app/views/railway_stations/index.html.erb:14
+  Rendered collection of railway_stations/_railway_station.html.erb [5 times] (Duration: 1.4ms | Allocations: 856)
+  Rendered railway_stations/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 4525)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 0.2ms | Allocations: 14667)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:02:11 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 119)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 7835)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:03:12 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.9ms | Allocations: 536)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1681)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.1ms | Allocations: 10373)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:03:13 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 270)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 8550)
+
+
+Started GET "/routes" for 127.0.0.1 at 2019-10-20 19:03:14 +0300
+Processing by RoutesController#index as HTML
+  Rendering routes/index.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  ↳ app/views/routes/index.html.erb:14
+  Rendered routes/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1238)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.2ms | Allocations: 9557)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:03:15 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 119)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 7835)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:03:16 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.2ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1674)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms | Allocations: 9976)
+
+
+Started GET "/trains/3" for 127.0.0.1 at 2019-10-20 19:03:17 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 3], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  Rendered trains/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1886)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 10266)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:03:19 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.7ms | Allocations: 375)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1205)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms | Allocations: 8929)
+
+
+Started GET "/trains/1" for 127.0.0.1 at 2019-10-20 19:03:20 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  Rendered trains/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1514)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.5ms | Allocations: 9749)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:03:21 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.9ms | Allocations: 373)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1201)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.1ms | Allocations: 8929)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:03:22 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 119)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 7833)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:03:23 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.6ms | Allocations: 380)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1211)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.2ms | Allocations: 8938)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 19:03:29 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 3.6ms | Allocations: 2384)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2789)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.2ms | Allocations: 11162)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 19:03:32 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"od5qk1/KZ/iG31sZP7OyR0ygAaidizSP9dvlNBtOcaG/KIIBxU0oVswLQ8I//mRmra6qCB/ovh/bKOEM/up9GQ==", "car"=>{"kind"=>"Second class", "top_places"=>"10", "lower_places"=>"10", "train_id"=>"1"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (1.2ms)[0m  [1m[33mUPDATE "cars" SET "kind" = ?, "train_id" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["kind", "Second class"], ["train_id", 1], ["updated_at", "2019-10-20 16:03:32.436767"], ["id", 2]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (71.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 83ms (ActiveRecord: 72.4ms | Allocations: 5511)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 19:03:32 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 252)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.1ms | Allocations: 8812)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:03:33 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.6ms | Allocations: 375)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1205)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.1ms | Allocations: 8932)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:03:34 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 119)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 7829)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:03:36 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.8ms | Allocations: 380)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1211)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.2ms | Allocations: 8940)
+
+
+Started GET "/trains/1" for 127.0.0.1 at 2019-10-20 19:03:38 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 1]]
+  ↳ app/views/trains/show.html.erb:20
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 1]]
+  ↳ app/views/trains/show.html.erb:23
+  Rendered trains/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2840)
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.6ms | Allocations: 11072)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:03:40 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.1ms | Allocations: 373)
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1201)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.1ms | Allocations: 8925)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:03:42 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:23
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2860)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.5ms | Allocations: 11102)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:03:43 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.8ms | Allocations: 373)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1201)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.1ms | Allocations: 8930)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:03:52 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 111)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 7829)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:04:41 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.7ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1679)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.1ms | Allocations: 10370)
+
+
+Started GET "/trains/1" for 127.0.0.1 at 2019-10-20 19:04:44 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 1]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2517)
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.4ms | Allocations: 10890)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:04:59 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.9ms | Allocations: 375)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1205)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.1ms | Allocations: 8934)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:05:03 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 270)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 8558)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:05:04 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 1.4ms | Allocations: 536)
+  Rendered cars/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1674)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.1ms | Allocations: 9980)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:05:05 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 119)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 7832)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:09:45 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.0ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1675)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.1ms | Allocations: 10365)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:09:47 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2579)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.7ms | Allocations: 10956)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:13:17 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.7ms | Allocations: 375)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1205)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.1ms | Allocations: 8935)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:13:18 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 270)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 8555)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:13:19 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 1.2ms | Allocations: 536)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1673)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.1ms | Allocations: 9975)
+
+
+Started GET "/cars/3" for 127.0.0.1 at 2019-10-20 19:13:21 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 249)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 8621)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:13:22 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 1.8ms | Allocations: 375)
+  Rendered cars/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1205)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.1ms | Allocations: 8929)
+
+
+Started GET "/cars/3/edit" for 127.0.0.1 at 2019-10-20 19:13:26 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 5.5ms | Allocations: 2384)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2789)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.2ms | Allocations: 11163)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:13:36 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.7ms | Allocations: 374)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1205)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.1ms | Allocations: 8933)
+
+
+Started GET "/cars/4/edit" for 127.0.0.1 at 2019-10-20 19:13:38 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 3.6ms | Allocations: 1966)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2093)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 10324)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:13:40 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 1.0ms | Allocations: 373)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1201)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.1ms | Allocations: 8929)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:13:41 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 119)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 7836)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:13:45 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.5ms | Allocations: 380)
+  Rendered trains/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1211)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.3ms | Allocations: 8944)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:13:47 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2195)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.4ms | Allocations: 10434)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:29:09 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2713)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.5ms | Allocations: 11928)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:29:57 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2706)
+Completed 200 OK in 17ms (Views: 13.4ms | ActiveRecord: 0.6ms | Allocations: 11916)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:30:06 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.8ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1695)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.2ms | Allocations: 9560)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:30:07 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 270)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 8558)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:30:09 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 1.1ms | Allocations: 536)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1694)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.2ms | Allocations: 10002)
+
+
+Started GET "/cars/3/edit" for 127.0.0.1 at 2019-10-20 19:30:10 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 4.2ms | Allocations: 2384)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2789)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.3ms | Allocations: 11184)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:30:35 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 1.0ms | Allocations: 374)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1205)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.1ms | Allocations: 8931)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:31:08 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 270)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 8944)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:31:10 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.2ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1674)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 9976)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:31:11 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.6ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2649)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 1.2ms | Allocations: 11045)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:32:18 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2618)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.4ms | Allocations: 11808)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:32:53 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.0ms | Allocations: 536)
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1690)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.2ms | Allocations: 9553)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:32:55 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 270)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 8552)
+
+
+Started GET "/routes" for 127.0.0.1 at 2019-10-20 19:32:56 +0300
+Processing by RoutesController#index as HTML
+  Rendering routes/index.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  ↳ app/views/routes/index.html.erb:14
+  Rendered routes/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1177)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 9479)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:32:57 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 119)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms | Allocations: 7839)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:32:58 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 1.0ms | Allocations: 536)
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1696)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 9997)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 19:33:02 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 4.2ms | Allocations: 2384)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2789)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.3ms | Allocations: 11183)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:33:20 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.7ms | Allocations: 374)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1205)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.1ms | Allocations: 8932)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:36:25 +0300
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 561)
+Completed 200 OK in 842ms (Views: 837.3ms | ActiveRecord: 0.0ms | Allocations: 1437494)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:36:27 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.0ms | Allocations: 607)
+  Rendered trains/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 6314)
+Completed 200 OK in 22ms (Views: 14.5ms | ActiveRecord: 0.6ms | Allocations: 17791)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:36:29 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 120)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 7837)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:36:31 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 1.1ms | Allocations: 590)
+  Rendered cars/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 6626)
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.7ms | Allocations: 15525)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 19:36:37 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 9.4ms | Allocations: 4785)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 10.6ms | Allocations: 5198)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 0.5ms | Allocations: 14322)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 19:36:41 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"5POQZbSGXf+gE9lBETS/vfC1IDn7fVqnZ/rz7GFZcl/6BXj3LgESUerHwZoReWmcEbuLmXke0DdJCffUhP1+5w==", "car"=>{"kind"=>"Third class", "top_places"=>"10", "lower_places"=>"10", "train_id"=>"1"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (0.2ms)[0m  [1m[33mUPDATE "cars" SET "kind" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["kind", "Third class"], ["updated_at", "2019-10-20 16:36:41.502102"], ["id", 2]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (83.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 99ms (ActiveRecord: 84.2ms | Allocations: 8942)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 19:36:41 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 256)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.1ms | Allocations: 8653)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:36:43 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.8ms | Allocations: 375)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1205)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.1ms | Allocations: 8932)
+
+
+Started GET "/cars/3/edit" for 127.0.0.1 at 2019-10-20 19:36:47 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 3.6ms | Allocations: 1970)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2097)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 10340)
+
+
+Started PATCH "/cars/3" for 127.0.0.1 at 2019-10-20 19:36:49 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"tKNlWhUzmIiukb6XzS0VUA/QSG6TZ2+QmJz/JuCjce5oAFxE0U3VJpUrUBykLsaVV6qO86acMScVq52vorE+cw==", "car"=>{"kind"=>"Third class", "top_places"=>"45", "lower_places"=>"65", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"3"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (0.9ms)[0m  [1m[33mUPDATE "cars" SET "kind" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["kind", "Third class"], ["updated_at", "2019-10-20 16:36:49.842460"], ["id", 3]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (60.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/3
+Completed 302 Found in 72ms (ActiveRecord: 61.7ms | Allocations: 5506)
+
+
+Started GET "/cars/3" for 127.0.0.1 at 2019-10-20 19:36:49 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 93)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 8341)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:36:51 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.6ms | Allocations: 373)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1201)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 8929)
+
+
+Started GET "/cars/4/edit" for 127.0.0.1 at 2019-10-20 19:36:52 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 3.7ms | Allocations: 1966)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2093)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 10325)
+
+
+Started PATCH "/cars/4" for 127.0.0.1 at 2019-10-20 19:36:54 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"VZ6lZ2VGPiTaGS16ZuPOaORyrzKYNlBQAFVltq3UNuRCRnvKmCDn6vtMel26B+jgZW6Tr02QnUdvhiPRDEvxRg==", "car"=>{"kind"=>"Third class", "top_places"=>"66", "lower_places"=>"66", "train_id"=>"4"}, "commit"=>"Update Car", "id"=>"4"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (1.0ms)[0m  [1m[33mUPDATE "cars" SET "kind" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["kind", "Third class"], ["updated_at", "2019-10-20 16:36:54.618075"], ["id", 4]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (69.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/4
+Completed 302 Found in 81ms (ActiveRecord: 70.4ms | Allocations: 5505)
+
+
+Started GET "/cars/4" for 127.0.0.1 at 2019-10-20 19:36:54 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 93)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.2ms | Allocations: 8518)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:36:55 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.8ms | Allocations: 373)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1201)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.1ms | Allocations: 8924)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:36:57 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 119)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 7837)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:36:59 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.9ms | Allocations: 380)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1211)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 8940)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-10-20 19:37:01 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 4], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 4]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 34.5ms | Allocations: 15634)
+Completed 200 OK in 45ms (Views: 40.8ms | ActiveRecord: 0.9ms | Allocations: 24024)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:37:06 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.7ms | Allocations: 375)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1205)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 8938)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:37:13 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 119)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 7840)
+
+
+Started GET "/routes" for 127.0.0.1 at 2019-10-20 19:37:15 +0300
+Processing by RoutesController#index as HTML
+  Rendering routes/index.html.erb within layouts/application
+  [1m[36mRoute Load (0.2ms)[0m  [1m[34mSELECT "routes".* FROM "routes"[0m
+  ↳ app/views/routes/index.html.erb:14
+  Rendered routes/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1243)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.2ms | Allocations: 9562)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:37:16 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 119)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 7832)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:37:18 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.8ms | Allocations: 380)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1211)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.1ms | Allocations: 8940)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 19:37:53 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 91)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 8329)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:37:55 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.6ms | Allocations: 373)
+  Rendered cars/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1201)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 8924)
+
+
+Started GET "/cars/2/edit" for 127.0.0.1 at 2019-10-20 19:37:57 +0300
+Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/edit.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/cars/_form.html.erb:31
+  Rendered cars/_form.html.erb (Duration: 4.7ms | Allocations: 1968)
+  Rendered cars/edit.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2095)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.3ms | Allocations: 10329)
+
+
+Started PATCH "/cars/2" for 127.0.0.1 at 2019-10-20 19:38:05 +0300
+Processing by CarsController#update as HTML
+  Parameters: {"authenticity_token"=>"g4gdPlXlqI0QBMFiiaF+FivtIr61tVRXA5sr/pmE2/WdfvWsz2LnI1rQ2bmJ7Kg3yuOJHjfW3sctaC/GfCDXTQ==", "car"=>{"kind"=>"Second class", "top_places"=>"1000", "lower_places"=>"1000", "train_id"=>"1"}, "commit"=>"Update Car", "id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[36mCar Update (0.3ms)[0m  [1m[33mUPDATE "cars" SET "kind" = ?, "top_places" = ?, "lower_places" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["kind", "Second class"], ["top_places", 1000], ["lower_places", 1000], ["updated_at", "2019-10-20 16:38:05.203638"], ["id", 2]]
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+  [1m[35m (104.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:30:in `block in update'
+Redirected to http://localhost:3000/cars/2
+Completed 302 Found in 117ms (ActiveRecord: 105.5ms | Allocations: 5624)
+
+
+Started GET "/cars/2" for 127.0.0.1 at 2019-10-20 19:38:05 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:48:in `set_car'
+  Rendering cars/show.html.erb within layouts/application
+  Rendered cars/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 93)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.1ms | Allocations: 8337)
+
+
+Started GET "/cars" for 127.0.0.1 at 2019-10-20 19:38:06 +0300
+Processing by CarsController#index as HTML
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:14
+  Rendered collection of cars/_car.html.erb [3 times] (Duration: 0.8ms | Allocations: 373)
+  Rendered cars/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1201)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.1ms | Allocations: 8925)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2019-10-20 19:38:07 +0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 111)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 7823)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:38:09 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 1.1ms | Allocations: 380)
+  Rendered trains/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1211)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.1ms | Allocations: 8945)
+
+
+Started GET "/trains/1" for 127.0.0.1 at 2019-10-20 19:38:12 +0300
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:67:in `set_train'
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mRoute Load (0.1ms)[0m  [1m[34mSELECT "routes".* FROM "routes" WHERE "routes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:8
+  [1m[36mCar Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cars" WHERE "cars"."train_id" = ? LIMIT ?[0m  [["train_id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:16
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."train_id" = ?[0m  [["train_id", 1]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2172)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.4ms | Allocations: 10409)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-10-20 19:38:16 +0300
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:14
+  Rendered collection of trains/_train.html.erb [3 times] (Duration: 0.6ms | Allocations: 373)
+  Rendered trains/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1201)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.1ms | Allocations: 8929)
+
+
