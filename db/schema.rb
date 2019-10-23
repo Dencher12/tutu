@@ -13,9 +13,12 @@
 ActiveRecord::Schema.define(version: 2019_10_20_105426) do
 
   create_table "cars", force: :cascade do |t|
-    t.string "kind"
+    t.string "type"
     t.integer "top_places"
-    t.integer "lower_places"
+    t.integer "bottom_places"
+    t.integer "top_side_places"
+    t.integer "bottom_side_places"
+    t.integer "seat_places"
     t.integer "train_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
