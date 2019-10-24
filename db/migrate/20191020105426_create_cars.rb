@@ -3,6 +3,7 @@ class CreateCars < ActiveRecord::Migration[6.0]
     create_table :cars do |t|
       t.string :type
 
+      t.integer :number
       t.integer :top_places
       t.integer :bottom_places
       t.integer :top_side_places

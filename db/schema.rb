@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_10_20_105426) do
 
   create_table "cars", force: :cascade do |t|
     t.string "type"
+    t.integer "number"
     t.integer "top_places"
     t.integer "bottom_places"
     t.integer "top_side_places"
