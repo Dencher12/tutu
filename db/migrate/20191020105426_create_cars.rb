@@ -9,7 +9,7 @@ class CreateCars < ActiveRecord::Migration[6.0]
       t.integer :top_side_places
       t.integer :bottom_side_places
       t.integer :seat_places
-
+     
       t.belongs_to :train
       t.timestamps
     end
