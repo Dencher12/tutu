@@ -13,8 +13,19 @@ class Train < ApplicationRecord
     res
   end
 
+  def cars_sort=(order)
+    super(true) if order == :from_head
+    super(false) if order == :from_tail
+  end
+
+  def cars_sort
+    return :from_head if super
+
+    :from_tail
+  end
+
   def sort
-    if cars_sort
+    if cars_sort == :from_head
       cars.order('number ASC')
     else
       cars.order('number DESC')
