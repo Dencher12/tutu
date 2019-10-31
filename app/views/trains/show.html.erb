@@ -17,10 +17,10 @@
     <strong>No cars<strong>
   <% else %>
     <strong>Second class cars number:</strong> 
-    <%= @train.cars.count {|c| c.kind == 'Second class'} %><br>
+    <%= @train.cars.count {|c| c.type == 'CoupeCar'} %><br>
 
     <strong>Third class cars number:</strong> 
-    <%= @train.cars.count {|c| c.kind == 'Third class'} %>
+    <%= @train.cars.count {|c| c.type == 'EconomyCar'} %>
   <% end %>
 </p>
 
@@ -30,7 +30,7 @@
     lower = 0 
     @train.cars.each do |c| 
       top += c.top_places 
-      lower += c.lower_places 
+      lower += c.bottom_places 
     end 
   %> 
 
