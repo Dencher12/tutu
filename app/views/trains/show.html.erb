@@ -16,11 +16,10 @@
   <% if @train.cars.empty? %>
     <strong>No cars<strong>
   <% else %>
-    <strong>Second class cars number:</strong> 
-    <%= @train.cars.count {|c| c.type == 'CoupeCar'} %><br>
-
-    <strong>Third class cars number:</strong> 
-    <%= @train.cars.count {|c| c.type == 'EconomyCar'} %>
+    <strong>Cars:</strong> 
+    <% @train.cars.each do |c| %>
+      <%= link_to c.number, car_path(c) %>
+    <% end %>  
   <% end %>
 </p>
 
@@ -29,8 +28,8 @@
     top = 0 
     lower = 0 
     @train.cars.each do |c| 
-      top += c.top_places 
-      lower += c.bottom_places 
+      top += c.top_places || 0
+      lower += c.bottom_places || 0
     end 
   %> 
 

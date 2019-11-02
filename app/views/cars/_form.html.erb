@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= f.label :type %>
-    <%= f.select :kind, '<option value="Second class">Second class</option> <option value="Third class">Third class</option>'.html_safe %>
+    <%= f.select :type, '<option value="Second class">Second class</option> <option value="Third class">Third class</option>'.html_safe %>
   </div>
 
   <div class="field">
     <%= f.label 'Top places' %>
-    <%= f.text_field :top_places %>
+    <%= f.text_field :top_places%>
   </div>
 
   <div class="field">
     <%= f.label 'Lower places' %>
-    <%= f.text_field :lower_places %>
+    <%= f.text_field :bottom_places %>
   </div>
 
   <div class="field">
