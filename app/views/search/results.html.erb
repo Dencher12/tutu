@@ -1,0 +1,20 @@
+<h1>Results:</h1>
+
+<table border = "1" rules="all">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Actions</th>
+      <th>Departure</th>
+      <th>Arrival</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% @trains.each do |train|%>
+        <%= render "trains/user_train", train: train %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

@@ -31,4 +31,12 @@ class Train < ApplicationRecord
       cars.order('number DESC')
     end
   end
+
+  def departure_in
+    route.railway_stations.first.departure_time
+  end
+
+  def arrival_in
+    route.railway_stations.last.arrival_time
+  end
 end

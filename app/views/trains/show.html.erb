@@ -38,7 +38,9 @@
   <strong> Lower places: </strong> <%= lower %>
 </p>
 
-
+<p>
+  <%= link_to 'Add car', new_train_car_path(@train) %>
+</p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
