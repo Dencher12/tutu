@@ -32,6 +32,14 @@ class Train < ApplicationRecord
     end
   end
 
+  def first_station
+    route.railway_stations.first
+  end
+
+  def last_station
+    route.railway_stations.last
+  end
+
   def departure_in
     route.railway_stations.first.departure_time
   end

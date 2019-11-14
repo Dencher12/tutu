@@ -7,13 +7,17 @@
       <th>Actions</th>
       <th>Departure</th>
       <th>Arrival</th>
+      <th>Purchase</th>
     </tr>
   </thead>
 
   <tbody>
     <tr>
       <% @trains.each do |train|%>
-        <%= render "trains/user_train", train: train %>
+        <tr>
+          <%= render "trains/user_train", train: train %>
+          <td><%= link_to 'Buy', new_ticket_path(train_id: train.id) %></td>
+        </tr>                                        
       <% end %>
     </tr>
   </tbody>

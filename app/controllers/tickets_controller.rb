@@ -1,23 +1,24 @@
 class TicketsController < ApplicationController
-  before_action :set_train, only: %i[show edit update destroy]
-
+ 
   def index
     @tickets = Ticket.all
   end
 
-  def show; end
+  def show
+    @ticket = Ticket.find(params[:id])
+    @train = @ticket.train
+  end
 
   def new
-    @tickets = Ticket.new
-    @train = Train.find(:train_id)
-    @start_station = RailwayStation.find(params[:first_station_id])
-    @end_station = RailwayStation.find(params[:last_station_id])
+    @ticket = Ticket.new
   end
 
   def edit; end
 
   def create
     @ticket = Ticket.new(ticket_params)
+    @ticket.user = User.first
+    @ticket.train = Train.find(ticket_params[:train_id])
 
     if @ticket.save
       redirect_to @ticket, notice: 'Ticket was successfully purchased.'
@@ -27,10 +28,6 @@ class TicketsController < ApplicationController
   end
 
   private
-
-  def set_ticket
-    @ticket = Tiket.find(params[:id])
-  end
 
   def ticket_params
     params.require(:ticket).permit(:first_station_id,

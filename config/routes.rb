@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   resources :trains do
     resources :cars, shallow: true
-  end  
+  end
   resources :railway_stations do
     patch :update_number, on: :member
-  end  
+  end
   resources :routes
   resources :cars
+  resources :tickets
 
   get 'search/show'
   get 'search/results'
