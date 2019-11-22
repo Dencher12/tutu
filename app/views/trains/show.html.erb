@@ -1,14 +1,23 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Number:</strong>
   <%= @train.number %>
 </p>
+
 <p>
   <% if @train.route.nil? %>
     <strong>No route assigned<strong>
   <% else %>
-    <strong>Route: </strong> <%= @train.route.name %>
+    <strong>Route: </strong> 
+    <%= link_to "#{@train.route.name}", route_path(@train.route) %>
+  <% end %>
+</p>
+
+<p>
+  <% if @train.current_station.nil? %>
+    <strong>No current station assigned<strong>
+  <% else %>
+    <strong>Current_station: </strong> 
+    <%= link_to "#{@train.current_station.title}", railway_station_path(@train.current_station)  %>
   <% end %>
 </p>
 

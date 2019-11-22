@@ -6,9 +6,7 @@ class CarsController < ApplicationController
     @cars = Car.all
   end
 
-  def show
-    @car = Car.find(params[:id])
-  end
+  def show; end
 
   def new
     @car = Car.new
@@ -50,6 +48,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:top_places, :bottom_places, :top_side_places, :bottom_side_places, :train_id)
+    params.require(:car).permit(:type, :top_places, :bottom_places, :top_side_places, :bottom_side_places, :train_id)
   end
 end

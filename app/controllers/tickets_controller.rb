@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
- 
+  before_action :authenticate_user!, only: :create
+
   def index
     @tickets = Ticket.all
   end
@@ -17,7 +18,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.user = User.first
+    @ticket.user = current_user
     @ticket.train = Train.find(ticket_params[:train_id])
 
     if @ticket.save

@@ -6,6 +6,6 @@ class Car < ApplicationRecord
   private
 
   def set_number
-    self.number = train.carriages.count + 1
+    self.number = train.cars.count + 1
   end
 end
