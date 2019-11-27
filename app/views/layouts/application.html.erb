@@ -16,7 +16,8 @@
 
     <% if user_signed_in? %>
       <%= "Hi, #{current_user.name}!" %><br>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete  %> |
+      <%= link_to 'Change data', user_registration_path, method: :patch  %>
     <% else %>
       <%= link_to 'Sign in', new_user_session_path %>
     <% end %>      

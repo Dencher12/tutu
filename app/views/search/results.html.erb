@@ -15,7 +15,7 @@
     <tr>
       <% @trains.each do |train|%>
         <tr>
-          <%= render "trains/user_train", train: train %>
+          <%= render "trains/train", train: train %>
           <td><%= link_to 'Buy', new_ticket_path(train_id: train.id) %></td>
         </tr>                                        
       <% end %>

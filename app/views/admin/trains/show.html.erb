@@ -1,0 +1,54 @@
+<p>
+  <strong>Number:</strong>
+  <%= @train.number %>
+</p>
+
+<p>
+  <% if @train.route.nil? %>
+    <strong>No route assigned<strong>
+  <% else %>
+    <strong>Route: </strong> 
+    <%= link_to "#{@train.route.name}", admin_route_path(@train.route) %>
+  <% end %>
+</p>
+
+<p>
+  <% if @train.current_station.nil? %>
+    <strong>No current station assigned<strong>
+  <% else %>
+    <strong>Current_station: </strong> 
+    <%= link_to "#{@train.current_station.title}", railway_station_path(@train.current_station)  %>
+  <% end %>
+</p>
+
+<p>
+  <% if @train.cars.empty? %>
+    <strong>No cars<strong>
+  <% else %>
+    <strong>Cars:</strong> 
+    <% @train.cars.each do |c| %>
+      <%= link_to c.number, admin_car_path(c) %>
+    <% end %>  
+  <% end %>
+</p>
+
+<p>
+  <% 
+    top = 0 
+    lower = 0 
+    @train.cars.each do |c| 
+      top += c.top_places || 0
+      lower += c.bottom_places || 0
+    end 
+  %> 
+
+  <strong> Top places: </strong> <%= top %> <br>
+  <strong> Lower places: </strong> <%= lower %>
+</p>
+
+<p>
+  <%= link_to 'Add car', new_admin_train_car_path(@train) %>
+</p>
+
+<%= link_to 'Edit', edit_train_path(@train) %> |
+<%= link_to 'Back', trains_path %>

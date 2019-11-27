@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @route.name %>
+</p>
+
+<% if @route.trains.empty?%>
+  <strong>There are no trains on the route</strong><br>
+<% else %>
+  <strong>Trains on the route:</strong>
+  <%= render 'attr_list', objects: :trains, attr: :number %> 
+<% end %>
+
+<% if @route.railway_stations.empty?%>
+  <strong>There are no stations on the route</strong><br>
+<% else %>
+  <strong>Stations in the route:</strong>
+  <table border = "1" rules="all">
+      <thead>
+        <tr>
+          <td width=200px>Название</td>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render 'attr_list' %>
+      </tbody> 
+    </table> 
+<% end %>
+
+<%= link_to 'Edit', edit_admin_route_path(@route) %> |
+<%= link_to 'Back', admin_routes_path %>

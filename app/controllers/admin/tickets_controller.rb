@@ -1,9 +1,9 @@
-class TicketsController < ApplicationController
+class Admin::TicketsController < Admin::BaseController
   before_action :authenticate_user!, only: :create
   before_action :set_ticket, only: %i[show edit destroy]
 
   def index
-    @tickets = Ticket.where(user_id: current_user.id)
+    @tickets = Ticket.all
   end
 
   def show
@@ -18,7 +18,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.user = current_user
+    @ticket.user = User.find(ticket_params[:user_id])
     @ticket.train = Train.find(ticket_params[:train_id])
     @ticket.first_station = @ticket.train.first_station.title
     @ticket.last_station = @ticket.train.last_station.title
