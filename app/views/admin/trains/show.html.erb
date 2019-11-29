@@ -17,7 +17,7 @@
     <strong>No current station assigned<strong>
   <% else %>
     <strong>Current_station: </strong> 
-    <%= link_to "#{@train.current_station.title}", railway_station_path(@train.current_station)  %>
+    <%= link_to "#{@train.current_station.title}", admin_railway_station_path(@train.current_station)  %>
   <% end %>
 </p>
 
@@ -50,5 +50,5 @@
   <%= link_to 'Add car', new_admin_train_car_path(@train) %>
 </p>
 
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to link_to I18n.t('common.back'), admin_trains_path %>

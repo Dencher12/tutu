@@ -1,0 +1,10 @@
+ru:
+  hello: "Здаров, ёпт"
+  admin:
+    trains:
+      new:
+        title: "Новый поезд"
+      form:
+        submit: "%{action} поезд"  
+  common:
+    back: "Назад"    
