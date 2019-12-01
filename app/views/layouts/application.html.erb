@@ -28,6 +28,14 @@
         <a class="navbar-brand" href="#">Tutu</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li><%= link_to "Exit", destroy_user_session_path, method: :delete  %></li>
+              <% if current_user.admin?%>
+                <li><%= link_to "Admin", admin_welcome_index_path  %></li>
+              <% end %>
+            <% else %> 
+              <li><%= link_to "Sign in", new_user_session_path  %></li>     
+            <% end %>
             <li><%= link_to "Link1", "/path1"  %></li>
             <li><%= link_to "Link2", "/path2"  %></li>
             <li><%= link_to "Link3", "/path3"  %></li>

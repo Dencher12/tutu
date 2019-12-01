@@ -4,7 +4,24 @@ ru:
     trains:
       new:
         title: "Новый поезд"
+      edit:
+        title: "Изменить поезд"  
       form:
-        submit: "%{action} поезд"  
+        submit: "%{action} поезд" 
+    railway_stations:  
+      new:
+        title: "Новая станция"
+      edit:
+        title: "Изменить станцию"    
+      form:
+        submit: "%{action} станцию"
+    routes:
+      new:
+        title: "Новый маршрут"
+      edit:
+        title: "Изменить маршрут"    
+      form:
+        submit: "%{action} маршрут"
   common:
-    back: "Назад"    
+    back: "Назад"
+    errors: "При заполнении формы возникли ошибки"    

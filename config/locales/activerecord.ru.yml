@@ -9,6 +9,9 @@ ru:
       train:
         number: "Номер"   
         current_station: "Текущая станция"  
+        route: "Маршрут"
+      route:
+        name: "Имя"    
     errors:
       messages:
         blank: "не может буть пустым"         
