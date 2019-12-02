@@ -24,7 +24,7 @@ class Admin::TicketsController < Admin::BaseController
     @ticket.last_station = @ticket.train.last_station.title
 
     if @ticket.save
-      redirect_to @ticket, notice: 'Ticket was successfully purchased.'
+      redirect_to [:admin, @ticket], notice: 'Ticket was successfully purchased.'
     else
       render :new
     end

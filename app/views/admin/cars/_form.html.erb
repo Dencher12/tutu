@@ -1,4 +1,4 @@
-<%= form_for([@train, @car]) do |f| %>
+<%= form_with(url: "/admin/trains/#{@train.id}/cars",scope: :car, local: true) do |f| %>
   <% if @car.errors.any? %>
     <div id="error_explanation">
       <h2><%= t('common.errors')%> </h2>
