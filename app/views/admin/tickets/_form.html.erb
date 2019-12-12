@@ -27,15 +27,15 @@
   </div>
 
   <div class="field">
-    <%= form.hidden_field :train_id, value: params[:train_id] %>
+    <%= form.hidden_field :train_id, value: params[:ticket][:train_id] %>
   </div>
 
    <div class="field">
-    <%= hidden_field :first_station_id, value: params[:first_station_id] %>
+    <%= form.hidden_field :first_station_id, value: params[:ticket][:first_station_id] %>
   </div>
 
    <div class="field">
-    <%= hidden_field :last_station_id, value: params[:last_station_id] %>
+    <%= form.hidden_field :last_station_id, value: params[:ticket][:last_station_id] %>
   </div>
 
   

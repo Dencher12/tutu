@@ -1,6 +1,6 @@
 class Admin::CarsController < Admin::BaseController
   before_action :set_train, only: %i[new create]
-  before_action :set_car, only: %i[show edit update destroy]
+  before_action :set_car, only: %i[edit update destroy show]
 
   def index
     @cars = Car.all
@@ -18,7 +18,7 @@ class Admin::CarsController < Admin::BaseController
     @car = @train.cars.new(car_params)
 
     if @car.save
-      redirect_to [:admin, @car], notice: 'Car was successfully created.'
+      redirect_to [:admin, @car.becomes(Car)], notice: 'Car was successfully created.'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class Admin::CarsController < Admin::BaseController
 
   def update
     if @car.update(car_params)
-      redirect_to [:admin, @car], notice: 'Car was successfully updated.'
+      redirect_to [:admin, @car.becomes(Car)], notice: 'Car was successfully updated.'
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class Admin::CarsController < Admin::BaseController
   private
 
   def set_car
-    @car = Car.find(params[:id])
+    @car = Car.find(params[:id]).becomes(Car)
   end
 
   def set_train

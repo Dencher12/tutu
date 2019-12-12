@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_033334) do
+ActiveRecord::Schema.define(version: 2019_12_05_202152) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "cars", force: :cascade do |t|
     t.string "type"
@@ -23,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_033334) do
     t.integer "train_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["id", "type"], name: "index_cars_on_id_and_type"
     t.index ["train_id"], name: "index_cars_on_train_id"
   end
 
@@ -32,12 +36,14 @@ ActiveRecord::Schema.define(version: 2019_11_25_033334) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "arrival_time"
     t.datetime "departure_time"
+    t.index ["id"], name: "index_railway_stations_on_id"
   end
 
   create_table "routes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["id"], name: "index_routes_on_id"
   end
 
   create_table "routes_railway_stations", force: :cascade do |t|
@@ -47,14 +53,15 @@ ActiveRecord::Schema.define(version: 2019_11_25_033334) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.string "first_station"
-    t.string "last_station"
     t.integer "user_id"
     t.integer "train_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "passport"
     t.string "full_name"
+    t.integer "first_station_id"
+    t.integer "last_station_id"
+    t.index ["id"], name: "index_tickets_on_id"
     t.index ["train_id"], name: "index_tickets_on_train_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
@@ -67,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_033334) do
     t.integer "route_id"
     t.boolean "cars_sort"
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
+    t.index ["id"], name: "index_trains_on_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
   end
 

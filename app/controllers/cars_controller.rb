@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_train, only: %i[new create]
+  before_action :set_train, only: %i[new create show]
   before_action :set_car, only: %i[show edit update destroy]
 
   def index
@@ -40,7 +40,7 @@ class CarsController < ApplicationController
   private
 
   def set_car
-    @car = Car.find(params[:id])
+    @car = Car.find(params[:id]).becomes(Car)
   end
 
   def set_train

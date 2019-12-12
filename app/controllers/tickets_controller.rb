@@ -20,8 +20,8 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.user = current_user
     @ticket.train = Train.find(ticket_params[:train_id])
-    @ticket.first_station = @ticket.train.first_station.title
-    @ticket.last_station = @ticket.train.last_station.title
+    @ticket.first_station_id = ticket_params[:first_station_id]
+    @ticket.last_station_id = ticket_params[:last_station_id]
 
     if @ticket.save
       redirect_to @ticket, notice: 'Ticket was successfully purchased.'

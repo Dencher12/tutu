@@ -4,13 +4,16 @@ class SearchController < ApplicationController
   end
 
   def results
-    @trains = Search.search(params[:first_station][:id], params[:last_station][:id])
+    @trains = Search.search(search_params[:first_station_id],
+                            search_params[:last_station_id])
+
+    @first_station_id = search_params[:first_station_id]
+    @last_station_id = search_params[:last_station_id]
   end
 
   private
 
   def search_params
-    params.require(:first_station).permit(:id)
-    params.require(:last_station).permit(:id)
+    params.require(:search).permit(:first_station_id, :last_station_id)
   end
 end

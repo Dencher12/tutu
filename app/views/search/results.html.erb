@@ -16,7 +16,17 @@
       <% @trains.each do |train|%>
         <tr>
           <%= render "trains/train", train: train %>
-          <td><%= link_to 'Buy', new_ticket_path(train_id: train.id) %></td>
+          <% if current_user.admin?%>
+            <td><%= link_to 'Buy', new_admin_ticket_path(ticket: {train_id: train.id,
+                                                            first_station_id: @first_station_id,
+                                                            last_station_id: @last_station_id}) %>
+            </td>
+          <% else %>
+            <td><%= link_to 'Buy', new_ticket_path(ticket: {train_id: train.id,
+                                                            first_station_id: @first_station_id,
+                                                            last_station_id: @last_station_id}) %>
+            </td>  
+          <% end %> 
         </tr>                                        
       <% end %>
     </tr>

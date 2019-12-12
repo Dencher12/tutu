@@ -42,10 +42,10 @@ class Train < ApplicationRecord
   end
 
   def departure_in
-    route.railway_stations.first.departure_time
+    route.railway_stations.first.departure_time if route.railway_stations.first
   end
 
   def arrival_in
-    route.railway_stations.last.arrival_time
+    route.railway_stations.last.arrival_time if route.railway_stations.first
   end
 end
