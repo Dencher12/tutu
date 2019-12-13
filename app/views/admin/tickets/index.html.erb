@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tickets</h1>
+
+<table border = "1" rules="all">
+  <thead>
+    <tr>
+      <th>Train number</th>
+      <th>First Station</th>
+      <th>Last Station</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.train.number %></td>
+        <td><%= ticket.first_station %></td>
+        <td><%= ticket.last_station %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

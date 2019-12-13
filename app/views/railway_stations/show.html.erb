@@ -1,8 +1,13 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @railway_station.title %>
+</p>
+
+<p>
+  <strong>Trains on station:</strong>
+  <% @railway_station.trains.each do |train|%>
+    <%= link_to "#{train.number}", train_path(train)%><br>
+  <% end %>  
 </p>
 
 <%= link_to 'Edit', edit_railway_station_path(@railway_station) %> |

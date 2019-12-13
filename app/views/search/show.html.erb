@@ -1,0 +1,19 @@
+<h1>Train's search</h1>
+
+<%= form_with(url: 'results', method: :get, scope: :search, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :first_station %>
+    <%= f.collection_select :first_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_station %>
+    <%= f.collection_select :last_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit('Search!') %>
+  </div>
+
+  <%= link_to 'My tickets', tickets_path %>
+<% end %>

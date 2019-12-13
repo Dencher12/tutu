@@ -1,8 +1,9 @@
 class Train < ApplicationRecord
   belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :current_station_id, optional: true
-  belongs_to :route, optional: true
+  belongs_to :route
   has_many :tickets
   has_many :cars
+  validates :number, presence: true
 
   def get_places(car_type, places_type)
     res = 0
@@ -30,5 +31,21 @@ class Train < ApplicationRecord
     else
       cars.order('number DESC')
     end
+  end
+
+  def first_station
+    route.railway_stations.first
+  end
+
+  def last_station
+    route.railway_stations.last
+  end
+
+  def departure_in
+    route.railway_stations.first.departure_time if route.railway_stations.first
+  end
+
+  def arrival_in
+    route.railway_stations.last.arrival_time if route.railway_stations.first
   end
 end

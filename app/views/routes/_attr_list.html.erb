@@ -1,5 +1,13 @@
-<ol>
-  <% @route.send(objects).each do |o| %>
-    <li> <%= link_to o.send(attr), o %> </li>
-  <% end %>
-</ol>
+<% @route.railway_stations.each do |station| %>
+  <tr>
+    <td> <%= link_to station.title, station %> </td>
+    <td>
+      <%= form_tag update_number_railway_station_path(station), method: :patch do %>
+        <%= number_field_tag :number, station.number_in(@route)%>
+        <%= hidden_field_tag :route_id, @route.id %>
+        <%= submit_tag 'Change' %>
+      <% end %>
+
+    </td>
+  </tr>  
+<% end %>

@@ -1,0 +1,45 @@
+<%= form_with(url: '/admin/tickets', scope: :ticket, local: true) do |form| %>
+  <% if ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('common.errors')%> </h2>
+
+      <ul>
+        <% ticket.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :passport %>
+    <%= form.text_field :passport %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.collection_select :user_id, User.all, :id, :email %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :train_id, value: params[:ticket][:train_id] %>
+  </div>
+
+   <div class="field">
+    <%= form.hidden_field :first_station_id, value: params[:ticket][:first_station_id] %>
+  </div>
+
+   <div class="field">
+    <%= form.hidden_field :last_station_id, value: params[:ticket][:last_station_id] %>
+  </div>
+
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

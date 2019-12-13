@@ -1,0 +1,22 @@
+<p>
+  <strong>Type:</strong>
+  <%= @car.type || 'No type' %>
+</p>
+
+<p>
+  <strong>Bottom places:</strong>
+  <%= @car.bottom_places || 0 %><br>
+
+  <strong>Top places:</strong>
+  <%= @car.top_places || 0 %><br>
+
+  <strong>Side Bottom places:</strong>
+  <%= @car.top_side_places || 0 %><br>
+
+  <strong>Side Top places:</strong>
+  <%= @car.top_side_places || 0 %>
+</p>  
+
+
+<%= link_to 'Edit', edit_admin_car_path(@car) %> |
+<%= link_to 'Back', [:admin, @car.train] %>

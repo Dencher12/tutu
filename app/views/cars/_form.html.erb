@@ -1,4 +1,4 @@
-<%= form_for(@car) do |f| %>
+<%= form_for([@train, @car]) do |f| %>
   <% if @car.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
@@ -13,7 +13,9 @@
 
   <div class="field">
     <%= f.label :type %>
-    <%= f.select :type, '<option value="Second class">Second class</option> <option value="Third class">Third class</option>'.html_safe %>
+    <%= f.select :type, 
+    '<option value="CoupeCar">Coupe</option> 
+     <option value="EconomyCar">Economy</option>'.html_safe %>
   </div>
 
   <div class="field">
@@ -24,11 +26,6 @@
   <div class="field">
     <%= f.label 'Lower places' %>
     <%= f.text_field :bottom_places %>
-  </div>
-
-  <div class="field">
-    <%= f.label :train %>
-    <%= f.collection_select :train_id, Train.all, :id, :number %>
   </div>
 
   <div class="actions">
