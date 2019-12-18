@@ -3,6 +3,8 @@ class RailwayStation < ApplicationRecord
   has_many :routes_railway_stations
   has_many :routes, through: :routes_railway_stations
 
+  validates :title, presence: true, uniqueness: true
+
   scope :ordered, -> { joins(:routes_railway_stations).order('routes_railway_stations.railway_stations_number').uniq }
 
   def update_number(route, number)

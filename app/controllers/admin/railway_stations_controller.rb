@@ -33,13 +33,13 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def destroy
     @railway_station.destroy
-    redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.'
+    redirect_to admin_railway_stations_path, notice: 'Railway station was successfully destroyed.'
   end
 
   def update_number
     @route = Route.find(params[:route_id])
     @railway_station.update_number(@route, params[:number])
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
 
   private
@@ -49,6 +49,6 @@ class Admin::RailwayStationsController < Admin::BaseController
   end
 
   def railway_station_params
-    params.require(:railway_station).permit(:title)
+    params.require(:railway_station).permit(:title, route_ids: [])
   end
 end

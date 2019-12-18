@@ -9,8 +9,10 @@
   <strong>There are no trains on the route</strong><br>
 <% else %>
   <strong>Trains on the route:</strong>
-  <%= render 'attr_list', objects: :trains, attr: :number %> 
+  <%= render 'trains_list' %> 
 <% end %>
+
+<br>
 
 <% if @route.railway_stations.empty?%>
   <strong>There are no stations on the route</strong><br>
@@ -19,11 +21,12 @@
   <table border = "1" rules="all">
       <thead>
         <tr>
-          <td width=200px>Название</td>
+          <th width=200px>Название</th>
+          <th>Расположение</th>
         </tr>
       </thead>
       <tbody>
-        <%= render 'attr_list' %>
+        <%= render 'stations_list' %>
       </tbody> 
     </table> 
 <% end %>

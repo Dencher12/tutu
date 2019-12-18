@@ -16,6 +16,15 @@
     <%= form.text_field :title %>
   </div>
 
+  <div class="field">
+    <%= form.hidden_field :route_id, value: params[:route_id] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :routes %>
+    <%= form.collection_select :route_ids, Route.all, :id, :name, {}, {multiple: true} %>
+  </div>
+
   <div class="actions">
     <%= form.submit t('.submit', action: @railway_station.new_record? ? 'Создать' : 'Изменить') %>
   </div>
