@@ -1,4 +1,4 @@
-<%= form_with(url: "/admin/trains/#{@train.id}/cars",scope: :car, local: true) do |f| %>
+<%= form_for [:admin, @train, @car] do |f| %>
   <% if @car.errors.any? %>
     <div id="error_explanation">
       <h2><%= t('common.errors')%> </h2>
@@ -11,24 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field select_car_type">
     <%= f.label :type %>
     <%= f.select :type, 
-    '<option value="CoupeCar">Coupe</option> 
-     <option value="EconomyCar">Economy</option>'.html_safe %>
+    '<option value="CoupeCar">CoupeCar</option>
+     <option value="DownCar">DownCar</option>
+     <option value="EconomyCar">EconomyCar</option>'.html_safe %>
   </div>
 
-  <div class="field">
+  <div class="field places top">
     <%= f.label 'Top places' %>
-    <%= f.text_field :top_places%>
+    <%= f.number_field :top_places %>
   </div>
 
-  <div class="field">
-    <%= f.label 'Lower places' %>
-    <%= f.text_field :bottom_places %>
+  <div class="field places bottom">
+    <%= f.label 'Bottom places' %>
+    <%= f.number_field :bottom_places %>
+  </div>
+
+  <div class="field  places top_side">
+    <%= f.label 'Top side places' %>
+    <%= f.number_field :top_side_places %>
+  </div>
+
+  <div class="field places bottom_side">
+    <%= f.label 'Bottom side places' %>
+    <%= f.number_field :bottom_side_places %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -2,9 +2,9 @@
 
 <h1>Routes</h1>
 
-<table border = "1" rules="all">
+<table border = "1" rules="all" class="table table-hover">
   <thead>
-    <tr>
+    <tr class="table-primary">
       <th>Name</th>
       <th colspan="3">Actions</th>
     </tr>
@@ -12,10 +12,13 @@
 
   <tbody>
     <% @routes.each do |route| %>
-      <tr>
-        <td><%= route.name %></td>
+      <tr class="table-secondary">
+        <td>
+          <%= route.name %>
+          <%= render 'form', route: route, hidden: true %>
+        </td>
         <td><%= link_to 'Show', admin_route_path(route) %></td>
-        <td><%= link_to 'Edit', edit_admin_route_path(route) %></td>
+        <td><%= link_to 'Edit', '', class: 'edit_route', data: {route_id: route.id} %></td>
         <td><%= link_to 'Destroy', admin_route_path(route), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -24,7 +27,5 @@
 
 <br>
 
-
-<%= link_to 'New Route', new_admin_route_path %><br>
-<%= link_to 'Home', admin_welcome_index_path %>
+<%= button_to "New Route", new_admin_route_path, method: :get, class: 'btn btn-primary' %>
 

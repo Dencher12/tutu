@@ -1,10 +1,10 @@
-<%= form_with(url: '/admin/railway_stations', scope: :railway_station, local: true) do |form| %>
-  <% if railway_station.errors.any? %>
+<%= form_for [:admin, station], html: {style: "display: #{hidden ? 'none' : 'block'}"} do |form| %>
+  <% if station.errors.any? %>
     <div id="error_explanation">
      <h2><%= t('common.errors')%> </h2>
 
       <ul>
-        <% railway_station.errors.full_messages.each do |message| %>
+        <% station.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -13,10 +13,19 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :route_id, value: params[:route_id] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :routes %>
+    <%= form.collection_select :route_ids, Route.all, :id, :name, {multiple: true}, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit t('.submit', action: @railway_station.new_record? ? 'Создать' : 'Изменить') %>
+    <%= form.submit t('.submit', action: station.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-primary' %>
   </div>
 <% end %>

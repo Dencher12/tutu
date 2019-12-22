@@ -1,5 +1,5 @@
 <% @route.railway_stations.each do |station| %>
-  <tr>
+  <tr class="table-secondary">
     <td> <%= link_to station.title, [:admin, station] %> </td>
     <td>
       <%= form_tag update_number_admin_railway_station_path(station), method: :patch do %>
@@ -7,7 +7,6 @@
         <%= hidden_field_tag :route_id, @route.id %>
         <%= submit_tag 'Change' %>
       <% end %>
-
     </td>
   </tr>  
 <% end %>

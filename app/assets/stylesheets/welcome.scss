@@ -3,21 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background: #000038;
-}
-.navbar-default {
-  
-  background: #515151;
-  border: none;
+  background: #222222;
 }
 
-footer {
-  position: fixed;
-  bottom: 20px;
-  margin-top: 20px;
+h1 {
+  color: white
 }
 
-a, li, h1, p, td, th, strong, h2, label {
+.btn-list {
+  min-width: 150px;
+}
+
+a, li, h1, p, td, th, strong, h2, label, table {
   color:white !important;
 }
 

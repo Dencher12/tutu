@@ -3,17 +3,18 @@
 <%= form_with(url: 'results', method: :get, scope: :search, local: true) do |f| %>
   <div class="field">
     <%= f.label :first_station %>
-    <%= f.collection_select :first_station_id, RailwayStation.all, :id, :title %>
+    <%= f.collection_select :first_station_id, RailwayStation.all, :id, :title, class: 'custom-select' %>
   </div>
 
   <div class="field">
     <%= f.label :last_station %>
-    <%= f.collection_select :last_station_id, RailwayStation.all, :id, :title %>
+    <%= f.collection_select :last_station_id, RailwayStation.all, :id, :title, class: 'custom-select' %>
   </div>
 
   <div class="actions">
-    <%= f.submit('Search!') %>
+    <%= f.submit('Search!', class: 'btn btn-primary') %>
   </div>
 
-  <%= link_to 'My tickets', tickets_path %>
+  <br>
+  <%= button_to "My tickets", tickets_path, method: :get, class: 'btn btn-primary' %>
 <% end %>

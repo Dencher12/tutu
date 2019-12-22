@@ -3,7 +3,7 @@ class Train < ApplicationRecord
   belongs_to :route
   has_many :tickets
   has_many :cars
-  validates :number, presence: true
+  validates :number, presence: true, uniqueness: true
 
   def get_places(car_type, places_type)
     res = 0

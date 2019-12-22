@@ -2,9 +2,9 @@
 
 <h1>Tickets</h1>
 
-<table border = "1" rules="all">
+<table border = "1" rules="all" class="table table-hover">
   <thead>
-    <tr>
+    <tr class="table-primary">
       <th>Train number</th>
       <th>First Station</th>
       <th>Last Station</th>
@@ -14,7 +14,7 @@
 
   <tbody>
     <% @tickets.each do |ticket| %>
-      <tr>
+      <tr class="table-secondary">
         <td><%= ticket.train.number %></td>
         <td><%= ticket.first_station.title %></td>
         <td><%= ticket.last_station.title %></td>
